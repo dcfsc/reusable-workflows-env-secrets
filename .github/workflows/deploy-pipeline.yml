@@ -4,19 +4,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy_dev:
-    name: Deploy to Dev
-    uses: colindembovsky/reusable-workflows-env-secrets/.github/workflows/reusable-deploy.yml@main
+  deploy_dly:
+    name: Deploy to DLY
+    uses: ./.github/workflows/reusable-deploy.yml
     with:
-      environment: dev
+      environment: dly
     secrets:
-      PASSWORD: ${{ secrets.PASSWORD }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
       
-  deploy_prod:
-    name: Deploy to Prod
-    needs: deploy_dev
-    uses: colindembovsky/reusable-workflows-env-secrets/.github/workflows/reusable-deploy.yml@main
+  deploy_stg:
+    name: Deploy to STG
+    needs: deploy_dly
+    uses: ./.github/workflows/reusable-deploy.yml
     with:
-      environment: prod
+      environment: stg
     secrets:
-      PASSWORD: ${{ secrets.PASSWORD }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
