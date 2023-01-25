@@ -37,7 +37,8 @@ jobs:
         fi
         echo "${{ secrets.ARM_CLIENT_ID}}" | md5sum
         # does this come from environment?
-        echo "WORKING_DIRECTORY=${{ env.WORKING_DIRECTORY }}"
+        echo "env.WORKING_DIRECTORY=${{ env.WORKING_DIRECTORY }}"
+        echo "vars.WORKING_DIRECTORY=${{ vars.WORKING_DIRECTORY }}"
       env:
         ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
 
