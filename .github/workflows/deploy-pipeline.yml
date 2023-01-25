@@ -11,6 +11,7 @@ jobs:
       environment: dly
     secrets:
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       
   deploy_stg:
     name: Deploy to STG
@@ -20,3 +21,4 @@ jobs:
       environment: stg
     secrets:
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
