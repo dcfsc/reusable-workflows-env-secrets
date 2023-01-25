@@ -12,11 +12,11 @@ jobs:
     uses: ./.github/workflows/reusable-deploy.yml
     with:
       environment: dly
-
-    secrets: inherit
-#    secrets:
-#      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
-#      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+    # Current runner version: '2.301.1'
+#    secrets: inherit
+    secrets:
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
 
   deploy_stg:
     name: Deploy to STG
