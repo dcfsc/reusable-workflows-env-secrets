@@ -20,6 +20,10 @@ jobs:
     environment: ${{ inputs.environment }}
     
     steps:
+    - name: Dump env
+      run: |
+        env | sort
+
     - name: Dump Password
       run: |
         echo 
@@ -36,6 +40,7 @@ jobs:
         echo "WORKING_DIRECTORY=${{ env.WORKING_DIRECTORY }}"
       env:
         ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+
 
 # STG
 # 567e3896e711eb4576d2709db8137c33
