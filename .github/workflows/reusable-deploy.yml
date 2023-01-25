@@ -24,20 +24,37 @@ jobs:
       run: |
         echo 
         echo Password is $ADMIN_PASSWORD
-        if [[ $ADMIN_PASSWORD == *"DLY"* ]]; then
+        if [[ $ADMIN_PASSWORD == *"DLYPASS"* ]]; then
           echo "This is the DLY password!"
-        elif [[ $ADMIN_PASSWORD == *"STG"* ]]; then
+        elif [[ $ADMIN_PASSWORD == *"STGPASS"* ]]; then
           echo "This is the STG password!"
         else
           echo "This is NOT the STG or DLY password!"
         fi
         echo "${{ secrets.ARM_CLIENT_ID}}" | md5sum
+        # does this come from environment?
+        echo "WORKING_DIRECTORY=${{ env.WORKING_DIRECTORY }}"
       env:
         ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
 
-
+# STG
+# 567e3896e711eb4576d2709db8137c33
 #570a90bfbf8c7eab5dc5d4e26832d5b1
 #
 #fred
 #
 #08b622ddf7eb7c8e44cdb3bd6362f966
+
+#STG:
+#ADMIN_PASSWORD=STGPASS\n
+#12a6668c6e6a03f28ec1d24849365ffc
+#
+#ARM_CLIENT_ID=STGCLIENT\n
+#d3c45435bd4d2a743878345a5a1acf2c
+#
+#DLY:
+#  ADMIN_PASSWORD=DLYPASS\n
+#  f37ab9057f18125679bd5e92bd69f776
+#
+#  ARM_CLIENT_ID=DLYCLIENT\n
+#  0893d9f3af6ddc59975315e8eead0f05
